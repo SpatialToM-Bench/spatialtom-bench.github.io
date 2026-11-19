@@ -1,0 +1,19 @@
+*{box-sizing:border-box}
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#263442;background:#fff;font-size:16px}
+body{margin:0;line-height:1.65}main{max-width:1080px;padding:0 30px;margin:0 auto}
+.project-header{text-align:center;padding:60px 0 34px}
+h1{font-size:2.55rem;line-height:1.25;letter-spacing:-.035em;font-weight:700;max-width:1050px;margin:0 auto 28px}
+h1>span{color:#176f77}.authors{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 18px;max-width:980px;margin:0 auto 20px;font-size:1.16rem;line-height:1.8}
+.author{white-space:nowrap;color:#235b87}sup{font-size:.68em;line-height:0;vertical-align:super;margin-left:2px}
+.affiliations{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 24px;max-width:920px;margin:0 auto;color:#4c5864;font-size:1rem}
+.affiliations>span{white-space:nowrap}.contribution{font-size:.875rem;color:#65707c;margin:12px 0 0}
+.resources{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px}
+.resources>span{border:1px solid #dde3e8;background:#f7f9fb;border-radius:6px;padding:9px 17px;display:flex;align-items:center;gap:9px;font-size:.94rem;font-weight:550;color:#364553}
+.resources small{font-size:.78rem;font-weight:400;color:#65707c}
+.overview{margin:12px 0 0}.overview a{display:block}.overview img{display:block;width:100%;height:auto}
+figcaption{max-width:940px;margin:16px auto 0;font-size:.94rem;line-height:1.7;color:#53606b;text-align:center}figcaption span{color:#235b87;white-space:nowrap}
+.abstract{max-width:870px;margin:54px auto 65px}h2{font-size:1.9rem;line-height:1.3;letter-spacing:-.02em;margin:0 0 20px;text-align:center}
+.abstract p{font-size:1.03rem;line-height:1.9;color:#3e4c58;margin:0}.abstract strong{font-weight:600}
+footer{border-top:1px solid #e9edf0;text-align:center;padding:24px 20px;color:#6a7580;font-size:.83rem}
+a:focus-visible{outline:3px solid #235b87;outline-offset:5px}
+@media(max-width:640px){main{padding:0 18px}.project-header{padding:34px 0 24px}h1{font-size:1.85rem;letter-spacing:-.03em;margin-bottom:24px}.authors{font-size:1.02rem;gap:6px 14px;margin-bottom:17px}.affiliations{font-size:.91rem;display:grid;gap:5px}.affiliations>span{white-space:normal}.resources{gap:8px;margin-top:22px}.resources>span{padding:8px 13px;flex-direction:column;gap:0}.resources small{font-size:.75rem}.overview{margin-top:8px}figcaption{text-align:left;font-size:.88rem}.abstract{margin-top:38px;margin-bottom:44px}.abstract p{font-size:1rem;line-height:1.85}h2{font-size:1.65rem}}
