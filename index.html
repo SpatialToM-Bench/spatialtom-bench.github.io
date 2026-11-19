@@ -27,6 +27,7 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
 </head>
 <body>
 <main>
@@ -51,9 +52,27 @@
   </div>
   <p class="contribution">* Equal contribution</p>
   <div class="resources" aria-label="Resource availability">
-   <span>Paper <small>Coming soon</small></span>
-   <span>Code <small>Coming soon</small></span>
-   <span>Dataset <small>Coming soon</small></span>
+   <div class="resource-item">
+    <button class="resource-button" type="button" aria-label="Paper on arXiv" aria-describedby="paper-status">
+     <img src="assets/arxiv.svg" width="20" height="20" alt="" aria-hidden="true">
+     <span>Paper</span>
+    </button>
+    <span class="resource-tooltip" id="paper-status" role="tooltip">Coming soon</span>
+   </div>
+   <div class="resource-item">
+    <button class="resource-button" type="button" aria-label="Code on GitHub" aria-describedby="code-status">
+     <img src="assets/github.svg" width="20" height="20" alt="" aria-hidden="true">
+     <span>Code</span>
+    </button>
+    <span class="resource-tooltip" id="code-status" role="tooltip">Coming soon</span>
+   </div>
+   <div class="resource-item">
+    <button class="resource-button" type="button" aria-label="Dataset on Hugging Face" aria-describedby="dataset-status">
+     <img src="assets/huggingface.svg" width="20" height="20" alt="" aria-hidden="true">
+     <span>Dataset</span>
+    </button>
+    <span class="resource-tooltip" id="dataset-status" role="tooltip">Coming soon</span>
+   </div>
   </div>
  </header>
  <figure class="overview">

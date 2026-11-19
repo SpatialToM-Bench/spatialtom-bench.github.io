@@ -8,7 +8,7 @@ Site address: https://spatialtom-bench.github.io/
 
 ## Publish
 
-Upload the contents of this folder to the repository root on `main`: `index.html`, `style.css`, `.nojekyll`, and `assets/`.
+Upload the contents of this folder to the repository root on `main`: `index.html`, `style.css`, `site.js`, `.nojekyll`, and `assets/`.
 
 In **Settings → Pages**, select **Deploy from a branch → main → / (root)** and save.
 
@@ -20,4 +20,12 @@ The page contains the title, author list, affiliations, overview figure, abstrac
 
 Han Yin, Yining Hong, and Jiageng Liu are marked as equal contributors. Yejin Choi shares affiliation 1, Stanford University. Author order and other affiliations follow the supplied screenshot.
 
-Paper, code, and dataset URLs are pending. Coming-soon labels are plain text, not dummy links. The full manuscript PDF is not included in this package.
+Paper, code, and dataset URLs are pending. Each resource button shows its platform icon and a “Coming soon” tooltip on hover, keyboard focus, or click/tap. Click again, click outside, or press Escape to dismiss. Interactions are in `site.js`. The full manuscript PDF is not included in this package.
+
+## Icon credits
+
+- arXiv: [Simple Icons](https://github.com/simple-icons/simple-icons/blob/develop/icons/arxiv.svg), CC0.
+- GitHub: [Primer Octicons](https://github.com/primer/octicons/blob/main/icons/mark-github-16.svg), MIT; see `assets/OCTICONS-LICENSE.txt`.
+- Hugging Face: [Lobe Icons](https://github.com/lobehub/lobe-icons/blob/master/packages/static-svg/icons/huggingface-color.svg), MIT; see `assets/LOBE-ICONS-LICENSE.txt`.
+
+Brand marks belong to their respective owners.
