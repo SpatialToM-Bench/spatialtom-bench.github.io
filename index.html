@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c1018">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="stylesheet" href="style.css?v=20261127-4">
+<link rel="stylesheet" href="style.css?v=20261127-5">
 <script src="site.js?v=20261127-3" defer></script>
 </head>
 <body>
@@ -130,12 +130,12 @@
    <button type="button" class="example-tab l2" id="tab-l2" aria-controls="panel-l2"><span class="tab-level">L2</span>Action<span class="tab-count">3 tasks</span></button>
   </div>
   <div class="example-panel l0" id="panel-l0">
-   <!-- Design and equations follow the paper's Capability and Task Taxonomy. -->
+   <!-- Selected text and equations from the paper's Capability and Task Taxonomy; retain its attribution/integration distinction. -->
    <div class="tier-design">
-    <div class="design-copy"><p class="design-label">Design philosophy</p><h3>Visual access grounds belief.</h3><p>Another agent’s knowledge is grounded in the visual evidence available from its own viewpoint. Reconstruct that evidence using scene geometry, pose, and motion, accounting for field of view and occlusion across time.</p></div>
+    <div class="design-copy"><p class="design-label">L0 · Perception</p><h3>Perspective and Visibility</h3><p>Attributing spatial knowledge starts with reconstructing the visual evidence available from another viewpoint. The Perception tier (L0) evaluates this spatial foundation: <em>i</em> uses scene layout and <em>j</em>’s position, orientation, and motion to infer its visual access under field-of-view and occlusion constraints.</p></div>
     <div class="design-formalism">
      <div class="formal-statement">
-      <h4>Perspective inference</h4>
+      <h4>Perspective and Visibility</h4>
       <!-- Paper notation: (B_i, H_i, A_{j \mid i}) \longrightarrow \hat{O}_{j \mid i} -->
       <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>A</mi><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><msub><mover accent="true"><mi>O</mi><mo>^</mo></mover><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub></math></div>
       <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mover accent="true"><mi>O</mi><mo>^</mo></mover><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>’s estimate of <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s visual observations at the relevant moments.</p>
@@ -145,18 +145,20 @@
    <figure><a class="figure-link" href="assets/supp_L0_examples-dark.webp" aria-label="Enlarge perception examples"><img src="assets/supp_L0_examples-dark.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Perception examples: Viewpoint Inference, Reference Frame Transformation, Visibility Judgment, Occlusion Reasoning, Visibility Tracking, Viewpoint Attribution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>6 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
   </div>
   <div class="example-panel l1" id="panel-l1">
-   <!-- Design and equations follow the paper's Capability and Task Taxonomy. -->
+   <!-- Selected text and equations from the paper's Capability and Task Taxonomy; retain its attribution/integration distinction. -->
    <div class="tier-design">
-    <div class="design-copy"><p class="design-label">Design philosophy</p><h3>Another mind is a source of spatial evidence.</h3><p>Knowledge persists beyond current visibility and may remain uncertain after change. Attribute beliefs from observation history and goal-directed actions, then relate those beliefs to your own experience to establish object correspondences and resolve references.</p></div>
+    <div class="design-copy"><p class="design-label">L1 · Cognition</p><h3>Belief Attribution and Integration</h3><p>Spatial knowledge depends on accumulated experience, including information retained outside the current view and uncertainty about subsequent changes. The Cognition tier (L1) tests both the attribution of this knowledge to <em>j</em> and its integration with <em>i</em>’s own experience.</p></div>
     <div class="design-formalism">
      <div class="formal-statement">
-      <h4>Spatial belief attribution</h4>
+      <h4>Spatial Belief Attribution</h4>
+      <p class="formal-context">Observation histories support forward inference from visual access to knowledge, while goal-directed actions support backward inference about what the actor believes:</p>
       <!-- Paper notation: (B_i, H_i, \hat{O}_{j \mid i}, A_{j \mid i}, g_j) \longrightarrow B_{ij} -->
       <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mover accent="true"><mi>O</mi><mo>^</mo></mover><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>A</mi><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>g</mi><mrow><mi>j</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math></div>
       <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>’s estimate of <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s spatial knowledge and beliefs, including uncertainty.</p>
      </div>
      <div class="formal-statement">
-      <h4>Cross-agent spatial integration</h4>
+      <h4>Cross-Agent Spatial Integration</h4>
+      <p class="formal-context">Cross-agent spatial integration relates another agent’s knowledge to one’s own experience by aligning spatial context across partial observations.</p>
       <!-- Paper notation: (B_i, H_i, A_{j \mid i}, u_{j \rightarrow i}) \longrightarrow (B_{ij}, C_{ij}) -->
       <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>A</mi><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>u</mi><mrow><mi>j</mi><mo>→</mo><mi>i</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>)</mo></math></div>
       <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>u</mi><mrow><mi>j</mi><mo>→</mo><mi>i</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s utterance to <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> gives object correspondences or the resolved referent.</p>
@@ -166,12 +168,12 @@
    <figure><a class="figure-link" href="assets/supp_L1_examples-dark.webp" aria-label="Enlarge cognition examples"><img src="assets/supp_L1_examples-dark.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Cognition examples: Knowledge Attribution, Action-Based Inference, Belief Revision, Spatial Correspondence, Reference Resolution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>5 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
   </div>
   <div class="example-panel l2" id="panel-l2">
-   <!-- Design and equations follow the paper's Capability and Task Taxonomy. -->
+   <!-- Selected text and equations from the paper's Capability and Task Taxonomy; retain its attribution/integration distinction. -->
    <div class="tier-design">
-    <div class="design-copy"><p class="design-label">Design philosophy</p><h3>Coordination depends on attributed knowledge.</h3><p>Useful guidance depends on a partner’s reference frame and knowledge; useful information depends on what it believes you already know. Anticipating its next choice lets you select a complementary action.</p></div>
+    <div class="design-copy"><p class="design-label">L2 · Action</p><h3>Guidance and Coordination</h3><p>The Action tier (L2) tests how attributed knowledge constrains guidance and coordination. We distinguish three requirements: guidance must fit the recipient’s spatial frame and knowledge, information selection must reflect the partner’s beliefs about the observer’s knowledge, and complementary actions must account for the partner’s expected choice.</p></div>
     <div class="design-formalism">
      <div class="formal-statement">
-      <h4>Guidance and coordination</h4>
+      <h4>Guidance and Coordination</h4>
       <!-- Paper notation: (B_i, B_{ij}, H_i, g_i, g_j) \longrightarrow B_{iji}\ \text{or}\ a\ \text{or}\ u_{i \rightarrow j} -->
       <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>g</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>g</mi><mrow><mi>j</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi><mi>i</mi></mrow></msub><mtext> or </mtext><mi>a</mi><mtext> or </mtext><msub><mi>u</mi><mrow><mi>i</mi><mo>→</mo><mi>j</mi></mrow></msub></math></div>
       <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>’s estimate of <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s beliefs; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi><mi>i</mi></mrow></msub></math> is its estimate of what <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math> believes <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math> knows. <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math> is an action selection or prediction; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>u</mi><mrow><mi>i</mi><mo>→</mo><mi>j</mi></mrow></msub></math> is an instruction to <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>.</p>
