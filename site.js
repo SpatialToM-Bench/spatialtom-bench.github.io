@@ -41,3 +41,63 @@
     if (event.key === 'Escape') close();
   });
 })();
+
+(() => {
+  const tablist = document.querySelector('.example-tabs');
+  if (!tablist) return;
+  const tabs = [...tablist.querySelectorAll('.example-tab')];
+  const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
+  function select(index, focus = false) {
+    tabs.forEach((tab, i) => {
+      tab.setAttribute('aria-selected', String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+      panels[i].hidden = i !== index;
+    });
+    if (focus) tabs[index].focus();
+  }
+  tablist.hidden = false;
+  tablist.setAttribute('role', 'tablist');
+  tabs.forEach((tab, index) => {
+    tab.setAttribute('role', 'tab');
+    panels[index].setAttribute('role', 'tabpanel');
+    panels[index].setAttribute('aria-labelledby', tab.id);
+    panels[index].tabIndex = 0;
+    tab.addEventListener('click', () => select(index));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      if (next !== undefined) { event.preventDefault(); select(next, true); }
+    });
+  });
+  select(0);
+
+  const dialog = document.querySelector('.image-dialog');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+  const image = dialog.querySelector('img');
+  const wrap = dialog.querySelector('.dialog-image-wrap');
+  const zoom = dialog.querySelector('.zoom-toggle');
+  let opener;
+  document.querySelectorAll('.figure-link, .overview a').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      opener = link;
+      image.src = link.querySelector('img').src;
+      image.alt = link.querySelector('img').alt;
+      wrap.classList.remove('is-zoomed');
+      zoom.textContent = 'Actual size';
+      dialog.showModal();
+      wrap.scrollTo(0, 0);
+      dialog.querySelector('.dialog-close').focus();
+    });
+  });
+  zoom.addEventListener('click', () => {
+    const zoomed = wrap.classList.toggle('is-zoomed');
+    zoom.textContent = zoomed ? 'Fit to screen' : 'Actual size';
+  });
+  dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => opener?.focus());
+  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+})();

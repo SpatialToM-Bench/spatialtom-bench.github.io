@@ -75,6 +75,13 @@
    </div>
   </div>
  </header>
+ <figure class="project-video">
+  <video controls playsinline preload="metadata" poster="assets/video-poster.webp" width="1920" height="1080" aria-label="SpatialToM project overview video" aria-describedby="video-caption">
+   <source src="assets/spatialtom-overview.mp4" type="video/mp4">
+   Your browser does not support embedded video. <a href="assets/spatialtom-overview.mp4">Watch the SpatialToM overview.</a>
+  </video>
+  <figcaption id="video-caption">Watch an introduction to SpatialToM, from spatial perspectives to multi-agent understanding and coordination.</figcaption>
+ </figure>
  <figure class="overview">
   <a href="assets/overview-v3.webp" target="_blank" rel="noopener" aria-label="Open the SpatialToM overview at full size">
    <img src="assets/overview-v3.webp" alt="SpatialToM overview: the observer has seen four books, while the other agent has seen only two. Resolving the other agent’s request requires reasoning about its experience. Fourteen task types are organized into Perception, Cognition, and Action." width="2400" height="2046" fetchpriority="high">
@@ -85,6 +92,68 @@
   <h2 id="abstract-title">Abstract</h2>
   <p>Spatial intelligence is not merely egocentric, but fundamentally intersubjective: it emerges where our perceived world and the unseen worlds of other agents seamlessly interlock. We introduce SpatialToM, a benchmark for embodied spatial theory of mind, where agents must reconstruct others’ mental states from spatial perspectives, observation histories, and goal-directed actions. SpatialToM organizes 14 task types into three hierarchical tiers: <strong>(L0) Perception</strong>, reasoning about perspective and visibility; <strong>(L1) Cognition</strong>, attributing and integrating others’ knowledge and beliefs; and <strong>(L2) Action</strong>, leveraging these inferences for guidance and multi-agent coordination. Built in VirtualHome, SpatialToM comprises 1,172 questions grounded in agents’ distinct perceptual, cognitive and active experiences. Evaluation of state-of-the-art VLMs reveals that explicit memory and denser observations offer selective gains in spatial grounding and knowledge attribution, but remain vulnerable to perceptual errors and belief reconstruction failures. Oracle physical records improve accuracy from 61.1% to 87.1%, yet models still struggle with belief uncertainty, spatial-temporal reasoning, and collaborative actions. These findings expose a gap between perceiving the world and understanding the minds that inhabit it.</p>
  </section>
+
+ <section class="dataset-section" id="dataset" aria-labelledby="dataset-title">
+  <p class="eyebrow">Inside the benchmark</p>
+  <h2 id="dataset-title">Dataset at a Glance</h2>
+  <p class="section-intro">Distinct viewpoints and observation histories create differences in what agents see, know, and believe. SpatialToM tests reasoning about these differences in VirtualHome.</p>
+  <dl class="stat-grid">
+   <div><dt>Questions</dt><dd>1,172</dd></div>
+   <div><dt>Task types</dt><dd>14</dd></div>
+   <div><dt>Capability tiers</dt><dd>3</dd></div>
+   <div><dt>Unique video clips</dt><dd>812</dd></div>
+  </dl>
+  <p class="stats-note">Inputs include static images, ordered image sequences, and videos. Some clips are shared across questions; 812 counts unique video clips, not questions or episodes.</p>
+  <div class="tier-grid">
+   <article class="tier-card l0"><span class="tier-label">L0</span><h3>Perception</h3><p>Perspective and visibility</p><div class="tier-total">502 <span>questions · 6 task types</span></div></article>
+   <article class="tier-card l1"><span class="tier-label">L1</span><h3>Cognition</h3><p>Belief attribution and integration</p><div class="tier-total">530 <span>questions · 5 task types</span></div></article>
+   <article class="tier-card l2"><span class="tier-label">L2</span><h3>Action</h3><p>Guidance and coordination</p><div class="tier-total">140 <span>questions · 3 task types</span></div></article>
+  </div>
+  <figure class="data-figure">
+   <a class="figure-link" href="assets/dataset_statistics.webp" aria-label="Enlarge dataset statistics"><img src="assets/dataset_statistics.webp" width="2400" height="501" loading="lazy" decoding="async" alt="Question proportions across 14 task types, and video-duration distribution in 10-second bins for L1 and L2."></a>
+   <figcaption>Question distribution by task type and duration distribution of the 812 unique video clips. Static images and image sequences are excluded from the duration histogram.</figcaption>
+  </figure>
+  <details class="task-counts"><summary>View all 14 task counts</summary><div class="table-wrap"><table><caption>Question counts by task type</caption><thead><tr><th scope="col">Tier</th><th scope="col">Task</th><th scope="col">Questions</th></tr></thead><tbody>
+   <tr><td>L0 · Perception</td><th scope="row">Viewpoint Inference <span>(VI)</span></th><td>100</td></tr>
+   <tr><td>L0 · Perception</td><th scope="row">Reference Frame Transformation <span>(RFT)</span></th><td>100</td></tr>
+   <tr><td>L0 · Perception</td><th scope="row">Visibility Judgment <span>(VJ)</span></th><td>73</td></tr>
+   <tr><td>L0 · Perception</td><th scope="row">Occlusion Reasoning <span>(OR)</span></th><td>66</td></tr>
+   <tr><td>L0 · Perception</td><th scope="row">Visibility Tracking <span>(VT)</span></th><td>63</td></tr>
+   <tr><td>L0 · Perception</td><th scope="row">Viewpoint Attribution <span>(VA)</span></th><td>100</td></tr>
+   <tr><td>L1 · Cognition</td><th scope="row">Knowledge Attribution <span>(KA)</span></th><td>197</td></tr>
+   <tr><td>L1 · Cognition</td><th scope="row">Action-Based Inference <span>(ABI)</span></th><td>82</td></tr>
+   <tr><td>L1 · Cognition</td><th scope="row">Belief Revision <span>(BR)</span></th><td>70</td></tr>
+   <tr><td>L1 · Cognition</td><th scope="row">Spatial Correspondence <span>(SC)</span></th><td>131</td></tr>
+   <tr><td>L1 · Cognition</td><th scope="row">Reference Resolution <span>(RR)</span></th><td>50</td></tr>
+   <tr><td>L2 · Action</td><th scope="row">Route Guidance <span>(RG)</span></th><td>66</td></tr>
+   <tr><td>L2 · Action</td><th scope="row">Information Selection <span>(IS)</span></th><td>29</td></tr>
+   <tr><td>L2 · Action</td><th scope="row">Multi-Agent Collaboration <span>(MAC)</span></th><td>45</td></tr>
+  </tbody><tfoot><tr><th scope="row" colspan="2">Total</th><td>1,172</td></tr></tfoot></table></div></details>
+ </section>
+ <section class="examples-section" id="examples" aria-labelledby="examples-title">
+  <p class="eyebrow">From seeing to knowing to acting</p>
+  <h2 id="examples-title">Task Examples</h2>
+  <p class="section-intro">One example for each of the 14 task types. Agent <em>i</em> is the camera wearer; agent <em>j</em> is the other agent.</p>
+  <div class="example-tabs" aria-label="Choose a capability tier" hidden>
+   <button type="button" class="example-tab l0" id="tab-l0" aria-controls="panel-l0">L0 · Perception<span>6 tasks</span></button>
+   <button type="button" class="example-tab l1" id="tab-l1" aria-controls="panel-l1">L1 · Cognition<span>5 tasks</span></button>
+   <button type="button" class="example-tab l2" id="tab-l2" aria-controls="panel-l2">L2 · Action<span>3 tasks</span></button>
+  </div>
+  <div class="example-panel l0" id="panel-l0">
+   <h3>L0 · Perception</h3><p class="panel-description">Infer another agent’s viewpoint and visual access from its position, orientation, and scene geometry.</p>
+   <figure><a class="figure-link" href="assets/supp_L0_examples.webp" aria-label="Enlarge perception examples"><img src="assets/supp_L0_examples.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Perception examples: Viewpoint Inference, Reference Frame Transformation, Visibility Judgment, Occlusion Reasoning, Visibility Tracking, Viewpoint Attribution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>6 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
+  </div>
+  <div class="example-panel l1" id="panel-l1">
+   <h3>L1 · Cognition</h3><p class="panel-description">Reconstruct what another agent has observed, infer its beliefs from behavior, and integrate information across distinct experiences.</p>
+   <figure><a class="figure-link" href="assets/supp_L1_examples.webp" aria-label="Enlarge cognition examples"><img src="assets/supp_L1_examples.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Cognition examples: Knowledge Attribution, Action-Based Inference, Belief Revision, Spatial Correspondence, Reference Resolution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>5 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
+  </div>
+  <div class="example-panel l2" id="panel-l2">
+   <h3>L2 · Action</h3><p class="panel-description">Use attributed knowledge for route guidance, information selection, and complementary choices in multi-agent coordination.</p>
+   <figure><a class="figure-link" href="assets/supp_L2_examples.webp" aria-label="Enlarge action examples"><img src="assets/supp_L2_examples.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Action examples: Route Guidance, Information Selection, Multi-Agent Collaboration. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>3 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
+  </div>
+  <p class="examples-note">These illustrated examples show selected video events, cropped frames, and shortened questions for readability. Outlines, answer marks, and explanations are figure annotations; timestamps are local to each clip.</p>
+ </section>
+ <dialog class="image-dialog" aria-labelledby="image-dialog-title"><div class="dialog-toolbar"><h2 id="image-dialog-title">Figure detail</h2><button type="button" class="zoom-toggle">Actual size</button><button type="button" class="dialog-close" aria-label="Close enlarged figure">Close</button></div><div class="dialog-image-wrap"><img alt=""></div></dialog>
 </main>
 <footer>SpatialToM · Embodied Spatial Theory of Mind</footer>
 </body>
