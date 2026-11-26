@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c1018">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="stylesheet" href="style.css?v=20261127-3">
+<link rel="stylesheet" href="style.css?v=20261127-4">
 <script src="site.js?v=20261127-3" defer></script>
 </head>
 <body>
@@ -118,43 +118,67 @@
    <a class="figure-link" href="assets/dataset_statistics.webp" aria-label="Enlarge dataset statistics"><img src="assets/dataset_statistics.webp" width="2400" height="501" loading="lazy" decoding="async" alt="Question proportions across 14 task types, and video-duration distribution in 10-second bins for L1 and L2."></a>
    <figcaption>Question distribution by task type and duration distribution of the 812 unique video clips. Static images and image sequences are excluded from the duration histogram.</figcaption>
   </figure>
-  <details class="task-counts"><summary>View all 14 task counts</summary><div class="table-wrap"><table><caption>Question counts by task type</caption><thead><tr><th scope="col">Tier</th><th scope="col">Task</th><th scope="col">Questions</th></tr></thead><tbody>
-   <tr><td>L0 · Perception</td><th scope="row">Viewpoint Inference <span>(VI)</span></th><td>100</td></tr>
-   <tr><td>L0 · Perception</td><th scope="row">Reference Frame Transformation <span>(RFT)</span></th><td>100</td></tr>
-   <tr><td>L0 · Perception</td><th scope="row">Visibility Judgment <span>(VJ)</span></th><td>73</td></tr>
-   <tr><td>L0 · Perception</td><th scope="row">Occlusion Reasoning <span>(OR)</span></th><td>66</td></tr>
-   <tr><td>L0 · Perception</td><th scope="row">Visibility Tracking <span>(VT)</span></th><td>63</td></tr>
-   <tr><td>L0 · Perception</td><th scope="row">Viewpoint Attribution <span>(VA)</span></th><td>100</td></tr>
-   <tr><td>L1 · Cognition</td><th scope="row">Knowledge Attribution <span>(KA)</span></th><td>197</td></tr>
-   <tr><td>L1 · Cognition</td><th scope="row">Action-Based Inference <span>(ABI)</span></th><td>82</td></tr>
-   <tr><td>L1 · Cognition</td><th scope="row">Belief Revision <span>(BR)</span></th><td>70</td></tr>
-   <tr><td>L1 · Cognition</td><th scope="row">Spatial Correspondence <span>(SC)</span></th><td>131</td></tr>
-   <tr><td>L1 · Cognition</td><th scope="row">Reference Resolution <span>(RR)</span></th><td>50</td></tr>
-   <tr><td>L2 · Action</td><th scope="row">Route Guidance <span>(RG)</span></th><td>66</td></tr>
-   <tr><td>L2 · Action</td><th scope="row">Information Selection <span>(IS)</span></th><td>29</td></tr>
-   <tr><td>L2 · Action</td><th scope="row">Multi-Agent Collaboration <span>(MAC)</span></th><td>45</td></tr>
-  </tbody><tfoot><tr><th scope="row" colspan="2">Total</th><td>1,172</td></tr></tfoot></table></div></details>
  </section>
  <section class="examples-section" id="examples" aria-labelledby="examples-title">
-  <p class="eyebrow">Explore the benchmark</p>
+  <p class="eyebrow">Task examples</p>
   <h2 id="examples-title">Fourteen tasks. Three levels.</h2>
-  <p class="section-intro">Choose a level to view its complete example sheet from the supplementary material. Agent <em>i</em> is the camera wearer; agent <em>j</em> is the other agent.</p>
+  <p class="section-intro">Explore each level’s design and examples from the supplementary material. Agent <em>i</em> is the camera wearer; agent <em>j</em> is the other agent.</p>
+  <p class="notation-key"><strong>Notation</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub></math>: <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>’s spatial knowledge and beliefs; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub></math>: its observation history; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>A</mi><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub></math>: <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s actions observed by <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>g</mi><mrow><mi>i</mi></mrow></msub></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>g</mi><mrow><mi>j</mi></mrow></msub></math>: specified goals. All tasks use visual question answering, including action selection and prediction.</p>
   <div class="example-tabs" aria-label="Choose a capability tier" hidden>
    <button type="button" class="example-tab l0" id="tab-l0" aria-controls="panel-l0"><span class="tab-level">L0</span>Perception<span class="tab-count">6 tasks</span></button>
    <button type="button" class="example-tab l1" id="tab-l1" aria-controls="panel-l1"><span class="tab-level">L1</span>Cognition<span class="tab-count">5 tasks</span></button>
    <button type="button" class="example-tab l2" id="tab-l2" aria-controls="panel-l2"><span class="tab-level">L2</span>Action<span class="tab-count">3 tasks</span></button>
   </div>
   <div class="example-panel l0" id="panel-l0">
-   <h3>L0 · Perception</h3><p class="panel-description">Infer another agent’s viewpoint and visual access from its position, orientation, and scene geometry.</p>
-   <figure><a class="figure-link" href="assets/supp_L0_examples.webp" aria-label="Enlarge perception examples"><img src="assets/supp_L0_examples.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Perception examples: Viewpoint Inference, Reference Frame Transformation, Visibility Judgment, Occlusion Reasoning, Visibility Tracking, Viewpoint Attribution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>6 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
+   <!-- Design and equations follow the paper's Capability and Task Taxonomy. -->
+   <div class="tier-design">
+    <div class="design-copy"><p class="design-label">Design philosophy</p><h3>Visual access grounds belief.</h3><p>Another agent’s knowledge is grounded in the visual evidence available from its own viewpoint. Reconstruct that evidence using scene geometry, pose, and motion, accounting for field of view and occlusion across time.</p></div>
+    <div class="design-formalism">
+     <div class="formal-statement">
+      <h4>Perspective inference</h4>
+      <!-- Paper notation: (B_i, H_i, A_{j \mid i}) \longrightarrow \hat{O}_{j \mid i} -->
+      <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>A</mi><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><msub><mover accent="true"><mi>O</mi><mo>^</mo></mover><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub></math></div>
+      <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mover accent="true"><mi>O</mi><mo>^</mo></mover><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>’s estimate of <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s visual observations at the relevant moments.</p>
+     </div>
+    </div>
+   </div>
+   <figure><a class="figure-link" href="assets/supp_L0_examples-dark.webp" aria-label="Enlarge perception examples"><img src="assets/supp_L0_examples-dark.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Perception examples: Viewpoint Inference, Reference Frame Transformation, Visibility Judgment, Occlusion Reasoning, Visibility Tracking, Viewpoint Attribution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>6 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
   </div>
   <div class="example-panel l1" id="panel-l1">
-   <h3>L1 · Cognition</h3><p class="panel-description">Reconstruct what another agent has observed, infer its beliefs from behavior, and integrate information across distinct experiences.</p>
-   <figure><a class="figure-link" href="assets/supp_L1_examples.webp" aria-label="Enlarge cognition examples"><img src="assets/supp_L1_examples.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Cognition examples: Knowledge Attribution, Action-Based Inference, Belief Revision, Spatial Correspondence, Reference Resolution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>5 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
+   <!-- Design and equations follow the paper's Capability and Task Taxonomy. -->
+   <div class="tier-design">
+    <div class="design-copy"><p class="design-label">Design philosophy</p><h3>Another mind is a source of spatial evidence.</h3><p>Knowledge persists beyond current visibility and may remain uncertain after change. Attribute beliefs from observation history and goal-directed actions, then relate those beliefs to your own experience to establish object correspondences and resolve references.</p></div>
+    <div class="design-formalism">
+     <div class="formal-statement">
+      <h4>Spatial belief attribution</h4>
+      <!-- Paper notation: (B_i, H_i, \hat{O}_{j \mid i}, A_{j \mid i}, g_j) \longrightarrow B_{ij} -->
+      <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mover accent="true"><mi>O</mi><mo>^</mo></mover><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>A</mi><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>g</mi><mrow><mi>j</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math></div>
+      <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>’s estimate of <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s spatial knowledge and beliefs, including uncertainty.</p>
+     </div>
+     <div class="formal-statement">
+      <h4>Cross-agent spatial integration</h4>
+      <!-- Paper notation: (B_i, H_i, A_{j \mid i}, u_{j \rightarrow i}) \longrightarrow (B_{ij}, C_{ij}) -->
+      <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>A</mi><mrow><mi>j</mi><mo>|</mo><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>u</mi><mrow><mi>j</mi><mo>→</mo><mi>i</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>)</mo></math></div>
+      <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>u</mi><mrow><mi>j</mi><mo>→</mo><mi>i</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s utterance to <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> gives object correspondences or the resolved referent.</p>
+     </div>
+    </div>
+   </div>
+   <figure><a class="figure-link" href="assets/supp_L1_examples-dark.webp" aria-label="Enlarge cognition examples"><img src="assets/supp_L1_examples-dark.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Cognition examples: Knowledge Attribution, Action-Based Inference, Belief Revision, Spatial Correspondence, Reference Resolution. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>5 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
   </div>
   <div class="example-panel l2" id="panel-l2">
-   <h3>L2 · Action</h3><p class="panel-description">Use attributed knowledge for route guidance, information selection, and complementary choices in multi-agent coordination.</p>
-   <figure><a class="figure-link" href="assets/supp_L2_examples.webp" aria-label="Enlarge action examples"><img src="assets/supp_L2_examples.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Action examples: Route Guidance, Information Selection, Multi-Agent Collaboration. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>3 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
+   <!-- Design and equations follow the paper's Capability and Task Taxonomy. -->
+   <div class="tier-design">
+    <div class="design-copy"><p class="design-label">Design philosophy</p><h3>Coordination depends on attributed knowledge.</h3><p>Useful guidance depends on a partner’s reference frame and knowledge; useful information depends on what it believes you already know. Anticipating its next choice lets you select a complementary action.</p></div>
+    <div class="design-formalism">
+     <div class="formal-statement">
+      <h4>Guidance and coordination</h4>
+      <!-- Paper notation: (B_i, B_{ij}, H_i, g_i, g_j) \longrightarrow B_{iji}\ \text{or}\ a\ \text{or}\ u_{i \rightarrow j} -->
+      <div class="tier-equation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>B</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>,</mo><msub><mi>H</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>g</mi><mrow><mi>i</mi></mrow></msub><mo>,</mo><msub><mi>g</mi><mrow><mi>j</mi></mrow></msub><mo>)</mo></math><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⟶</mo><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi><mi>i</mi></mrow></msub><mtext> or </mtext><mi>a</mi><mtext> or </mtext><msub><mi>u</mi><mrow><mi>i</mi><mo>→</mo><mi>j</mi></mrow></msub></math></div>
+      <p class="equation-key"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> is <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>’s estimate of <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>’s beliefs; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>B</mi><mrow><mi>i</mi><mi>j</mi><mi>i</mi></mrow></msub></math> is its estimate of what <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math> believes <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math> knows. <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math> is an action selection or prediction; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>u</mi><mrow><mi>i</mi><mo>→</mo><mi>j</mi></mrow></msub></math> is an instruction to <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>.</p>
+     </div>
+    </div>
+   </div>
+   <figure><a class="figure-link" href="assets/supp_L2_examples-dark.webp" aria-label="Enlarge action examples"><img src="assets/supp_L2_examples-dark.webp" width="2400" height="2842" loading="lazy" decoding="async" alt="Action examples: Route Guidance, Information Selection, Multi-Agent Collaboration. Each panel shows the visual evidence, question, and annotated answer."></a><figcaption>3 examples from the supplementary material. Click the figure to enlarge.</figcaption></figure>
   </div>
   <p class="examples-note">These illustrated examples show selected video events, cropped frames, and shortened questions for readability. Outlines, answer marks, and explanations are figure annotations; timestamps are local to each clip.</p>
  </section>
